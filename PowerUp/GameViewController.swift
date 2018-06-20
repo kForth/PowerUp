@@ -16,13 +16,9 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         if let view = self.view as! SKView? {
-            // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "GameScene") {
-                // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFill
-                
-                // Present the scene
-                view.presentScene(scene)
+            if let scene = SKScene(fileNamed: "MenuScene") {
+                scene.scaleMode = .aspectFill  // Set the scale mode to scale to fit the window
+                view.presentScene(scene)  // Present the scene
             }
             
             view.ignoresSiblingOrder = true
@@ -38,9 +34,9 @@ class GameViewController: UIViewController {
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
+            return .landscapeLeft
         } else {
-            return .all
+            return .landscapeRight
         }
     }
 
